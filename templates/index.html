@@ -1,25 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Deadlines</title>
-</head>
-<body>
-    <h1>Due Next:</h1>
-    <ul>
-        {% for d in deadlines %}
-            <li>
-                <strong>{{ d.task }}</strong> — Due: {{ d.date }}
+{% extends "base.html" %}
 
-                {% if d.status == 'pending' %}
-                    <span class="badge yellow">Pending</span>
+{% block content %}
+    <h2>Due Next:</h2>
+    <div class="tracker-container">
+        <table class="deadline-table">
+            <thead>
+                <tr>
+                    <th>Task Description</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in deadlines %}
+                <tr class="deadline-row">
+                    <td>
+                        <input type="text" value="{{ d.task }}" class="field-task">
+                    </td>
+                    <td>
+                        <input type="date" value="{{ d.date }}" class="field-date">
+                    </td>
+                    <td>
+                        <span class="status-pill {{ d.status }}">{{ d.status.title() }}</span>
+                    </td>
+
+                </tr>
                 {% else %}
-                    <span class="badge green">Done</span>
-                {% endif %}
-            </li>
-        {% else %}
-            <li>No deadlines found. Time to relax!</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+                <tr>
+                    <td colspan="4" style="text-align: center;">No deadlines found. Add one above!</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
