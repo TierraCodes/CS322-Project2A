@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Deadlines</title>
+</head>
+<body>
+    <h1>Due Next:</h1>
+    <ul>
+        {% for d in deadlines %}
+            <li>
+                <strong>{{ d.task }}</strong> — Due: {{ d.date }}
+
+                {% if d.status == 'pending' %}
+                    <span class="badge yellow">Pending</span>
+                {% else %}
+                    <span class="badge green">Done</span>
+                {% endif %}
+            </li>
+        {% else %}
+            <li>No deadlines found. Time to relax!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
