@@ -5,7 +5,7 @@
 
     <div class="add-deadline">
         <form action="/add" method="POST">
-            <input type="text" name="task" placeholder="Task description..." required>
+            <input type="text" name="task" maxlength="50" placeholder="Task description..." required>
             <input type="date" name="date" required>
             <select name="status">
                 <option value="not started">Not Started</option>
@@ -30,7 +30,7 @@
                 {% for d in deadlines %}
                 <tr class="deadline-row">
                     <td>
-                        <input type="text" value="{{ d.task }}" class="field-task">
+                        <input type="text" value="{{ d.task }}" minlength="1" maxlength="50" class="field-task">
                     </td>
                     <td>
                         <input type="date" value="{{ d.date }}" class="field-date">
