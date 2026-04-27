@@ -2,6 +2,20 @@
 
 {% block content %}
     <h2>Due Next:</h2>
+
+    <div class="add-deadline">
+        <form action="/add" method="POST">
+            <input type="text" name="task" placeholder="Task description..." required>
+            <input type="date" name="date" required>
+            <select name="status">
+                <option value="not started">Not Started</option>
+                <option value="started">Started</option>
+                <option value="pending">Pending</option>
+                <option value="finished">Finished</option>
+            </select>
+            <button type="submit">Add Deadline</button>
+        </form>
+    </div>
     <div class="tracker-container">
         <table class="deadline-table">
             <thead>
@@ -21,7 +35,15 @@
                         <input type="date" value="{{ d.date }}" class="field-date">
                     </td>
                     <td>
-                        <span class="status-pill {{ d.status }}">{{ d.status.title() }}</span>
+                        <select name="status" class="status-select">
+                            <option value="not_started" {% if d.status == 'not_started' %}selected{% endif %}>Not Started</option>
+
+                            <option value="started" {% if d.status == 'started' %}selected{% endif %}>Started</option>
+
+                            <option value="pending" {% if d.status == 'pending' %}selected{% endif %}>Pending</option>
+
+                            <option value="finished" {% if d.status == 'finished' %}selected{% endif %}>Finished</option>
+                        </select>
                     </td>
 
                 </tr>
