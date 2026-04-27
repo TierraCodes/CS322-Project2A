@@ -21,6 +21,8 @@ def add_deadline():
         status = 'pending'
     if not task or not date:
         return "Error: Missing data", 400
+    if task and len(task) > 50:
+        task = task[:50]
 
     store.add_deadline(task, date, status)
     return redirect(url_for('home'))
