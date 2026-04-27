@@ -1,60 +1,107 @@
-* {
-    background-color: rgb(255, 216, 223);
-    padding: 0px 15px;
-    font-family: "Lucida Bright", cursive;
-}
-
 body {
-    text-align: left;
+    background-color: rgb(255, 216, 223);
+    margin: 0;
+    padding: 30px;
+    font-family: "Lucida Bright", "Georgia", serif;
+    color: #444;
 }
 
 h1 {
     background-color: rgb(255, 241, 246);
-    color: rgb(179 70 91);
-    padding: 15px;
-    margin: 20px;
-    font-size: 200%;
+    color: rgb(179, 70, 91);
+    padding: 20px;
+    margin: 0 auto 30px auto;
+    font-size: 2.2rem;
     border: 1px solid white;
     text-align: center;
+    border-radius: 4px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    background-color: white;
+    border: 2px solid rgb(255, 216, 223);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-family: "Lucida Bright", serif;
+    color: #444;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: rgb(179, 70, 91);
+    background-color: rgb(255, 241, 246);
+    box-shadow: 0 0 5px rgba(179, 70, 91, 0.1);
+}
+
+.add-deadline-container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    border-left: 5px solid rgb(179, 70, 91);
 }
 
 .deadline-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.deadline-table thead {
+    background-color: rgb(179, 70, 91);
 }
 
 .deadline-table th {
+    padding: 15px;
     text-align: left;
-    background-color: #f8f9fa;
-    padding: 12px;
-    border-bottom: 2px solid rgb(179 70 91);
+    color: white;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .deadline-row td {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    background-color: #f8f9fa;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgb(255, 216, 223);
 }
 
-.deadline-row input {
-    border: 1px solid transparent;
-    padding: 8px;
+.deadline-row input,
+.deadline-row select {
     width: 90%;
-    transition: border 0.3s;
-    background-color: #f8f9fa;
+    padding: 6px 10px;
+    border: 1px solid transparent;
 }
 
-.deadline-row input:focus {
-    border: 1px solid rgb(179 70 91);
-    outline: none;
-    background-color: rgb(255, 216, 223);
+.deadline-row input:focus,
+.deadline-row select:focus {
+    border: 1px solid rgb(179, 70, 91);
 }
 
-.status-pill {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.85em;
+.btn-update {
+    background-color: rgb(179, 70, 91);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s;
 }
 
-.pending { background-color: #fff3cd; color: #856404; }
+.btn-update:hover {
+    filter: brightness(1.1);
+}
+
+.btn-delete {
+    color: rgb(179, 70, 91);
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
