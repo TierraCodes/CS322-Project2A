@@ -1,0 +1,38 @@
+.deadline-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.deadline-table th {
+    text-align: left;
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.deadline-row td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.deadline-row input {
+    border: 1px solid transparent;
+    padding: 8px;
+    width: 90%;
+    transition: border 0.3s;
+}
+
+.deadline-row input:focus {
+    border: 1px solid #007bff;
+    outline: none;
+    background-color: #fff;
+}
+
+.status-pill {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+}
+
+.pending { background-color: #fff3cd; color: #856404; }
