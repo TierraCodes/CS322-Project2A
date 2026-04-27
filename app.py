@@ -9,3 +9,4 @@ app = Flask(__name__)
 def home():
     my_deadlines = store.get_deadlines()
     return render_template('index.html', deadlines = my_deadlines)
+
