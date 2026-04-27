@@ -41,3 +41,7 @@ def update_deadline(deadline_id):
 
     return redirect(url_for('home'))
 
+@app.route('/delete/<deadline_id>')
+def delete_deadline(deadline_id):
+    store.delete_deadline(deadline_id)
+    return redirect(url_for('home'))
